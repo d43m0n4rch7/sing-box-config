@@ -129,9 +129,7 @@ def start_interactive_shell() -> None:
 
     while True:
         try:
-            text = session.prompt(
-                HTML('<style fg="#89b4fa" bold="true">sbc</style><style fg="#a6adc8"> ❯ </style>')
-            ).strip()
+            text = session.prompt(HTML('<style fg="#89b4fa" bold="true">sbc</style><style fg="#a6adc8"> ❯ </style>')).strip()
 
             if not text:
                 continue

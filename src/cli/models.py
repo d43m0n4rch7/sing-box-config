@@ -23,6 +23,7 @@ class ProfileType(IntEnum):
     REMOTE : int
         Profile fetched and updated from a remote URL.
     """
+
     LOCAL = 0
     ICLOUD = 1
     REMOTE = 2
@@ -72,6 +73,7 @@ class VlessParams(BaseModel):
     all_params : dict[str, list[str]]
         A dictionary capturing all raw query parameters.
     """
+
     model_config = ConfigDict(populate_by_name=True, extra="ignore")
 
     name: str
@@ -114,6 +116,7 @@ class ProfileContent(BaseModel):
     last_updated : int
         Unix timestamp of the last update.
     """
+
     name: str
     type: ProfileType
     config: str

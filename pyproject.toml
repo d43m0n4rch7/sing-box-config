@@ -21,13 +21,13 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.12",
-    "Topic :: Communications :: Networking",
     "Topic :: System :: Networking",
     "Topic :: Utilities"
 ]
 dependencies = [
     "httpx>=0.28.1",
     "plotext>=5.3.2",
+    "pre-commit>=4.6.0",
     "prompt-toolkit>=3.0.52",
     "psutil>=7.2.2",
     "pydantic>=2.13.4",

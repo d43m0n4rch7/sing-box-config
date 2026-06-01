@@ -54,6 +54,7 @@ class SBCParser(argparse.ArgumentParser):
         rprint(f"[bold #f38ba8]❌  Argument Error:[/] {message}")
         self.print_usage()
         import sys
+
         sys.exit(2)
 
 
