@@ -289,6 +289,7 @@ def cmd_fetch_assets(args: list[str]) -> None:
     urls = {
         "antizapret.srs": "https://krasovs.ky/sing-box/antizapret.srs",
         "geoip.db": "https://krasovs.ky/sing-box/geoip.db",
+        "geosite.db": "https://krasovs.ky/sing-box/geosite.db",
     }
 
     with httpx.Client(follow_redirects=True) as client:
