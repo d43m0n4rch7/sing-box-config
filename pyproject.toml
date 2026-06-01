@@ -1,7 +1,105 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "sing-box-config"
 version = "0.1.0"
 description = "A lightweight CLI tool for managing sing-box configurations and packing binary BPF files."
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+authors = [{ name = "D43m0n4RcH7", email = "d43m0n4rch7@gmail.com" }]
+dependencies = [
+    "httpx>=0.28.1",
+    "plotext>=5.3.2",
+    "prompt-toolkit>=3.0.52",
+    "psutil>=7.2.2",
+    "pydantic>=2.13.4",
+    "rich>=15.0.0",
+    "sing-box-bin>=1.13.12",
+]
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.409",
+    "ruff>=0.15.15",
+]
+
+[project.urls]
+repository = "https://github.com/d43m0n4rch7/sing-box-config"
+
+[project.scripts]
+sing-box-config = "cli.main:main"
+sbc = "cli.main:main"
+
+[tool.hatch.version]
+path = "src/cli/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cli"]
+
+[tool.pyright]
+include = ["src"]
+pythonVersion = "3.12"
+typeCheckingMode = "strict"
+exclude = [".venv", "**/__pycache__", "**/.*"]
+
+deprecateTypingAliases = true
+reportMissingTypeStubs = false
+reportUnknownMemberType = false
+reportUnknownVariableType = false
+reportUnknownArgumentType = false
+reportImplicitStringConcatenation = false
+
+[tool.ruff]
+src = ["src"]
+preview = false
+line-length = 125
+target-version = "py312"
+exclude = [".venv", "**/__pycache__"]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "W",
+    "F",
+    "I",
+    "B",
+    "C4",
+    "UP",
+    "ARG001",
+]
+ignore = [
+    "E501",
+    "B008",
+    "W191",
+    "B904",
+    "COM819",
+    "D100",
+    "D104",
+    "D203",
+    "E201",
+    "E202",
+    "E203",
+    "E221",
+    "E241",
+    "E251",
+    "W291",
+    "W293",
+]
+unfixable = ["ERA",]
+flake8-quotes.inline-quotes = "double"
+flake8-annotations.allow-star-arg-any = true
+
+[tool.ruff.format]
+line-ending = "lf"
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+split-on-trailing-comma = true
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
